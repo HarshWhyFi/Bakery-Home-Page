@@ -1,0 +1,347 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bakery Inspired by Starbucks</title>
+    <link href="https://fonts.googleapis.com/css2?family=Lobster&family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        :root {
+            --main-bg-color: #f5f5f5;
+            --header-bg-color: #00704a;
+            --text-color: #333;
+            --footer-bg-color: #00704a;
+            --button-bg-color: #d1d1d1;
+            --button-hover-bg-color: #c1c1c1;
+            --light-bg-color: #ffffff;
+            --testimonial-bg-color: #f9f9f9;
+        }
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--main-bg-color);
+        }
+
+        header {
+            background-color: var(--header-bg-color);
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        header .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #ffffff;
+            display: flex;
+            align-items: center;
+        }
+
+        header .logo i {
+            font-size: 40px;
+            margin-right: 10px;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+        }
+
+        nav ul li {
+            margin-left: 20px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #ffffff;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: #d1d1d1;
+        }
+
+        /* Hero section styles */
+        .hero {
+            background-image: url('https://img.wattpad.com/ed852927275f5738c84f6bd636107a940c2e8101/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f776174747061642d6d656469612d736572766963652f53746f7279496d6167652f736b6c67623152476c4a565043413d3d2d313338303132383935382e313738323061323030336237343565633737363131363933363832362e676966?s=fit&w=720&h=720'); /* Updated background image */
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 100px 20px;
+            text-align: center;
+            position: relative;
+            overflow: hidden; /* Prevent overflow from animations */
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            margin: 0;
+            animation: fadeInUp 0.8s ease-out forwards;
+            opacity: 0; /* Start hidden for fade-in */
+        }
+
+        .hero p {
+            font-size: 20px;
+            margin: 20px 0;
+            animation: fadeInUp 1s ease-out forwards;
+            opacity: 0; /* Start hidden for fade-in */
+        }
+
+        .hero button {
+            padding: 10px 20px;
+            background: var(--header-bg-color);
+            border: none;
+            cursor: pointer;
+            border-radius: 4px;
+            transition: background 0.3s;
+            color: #ffffff;
+            font-size: 26px;
+            animation: fadeInUp 1.2s ease-out forwards;
+            opacity: 0; /* Start hidden for fade-in */
+        }
+
+        .hero button:hover {
+            background: var(--button-hover-bg-color);
+        }
+
+        /* Keyframe animations */
+        @keyframes fadeInUp {
+            0% {
+                transform: translateY(20px);
+                opacity: 0;
+            }
+            100% {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        section {
+            padding: 60px 20px;
+            text-align: center;
+        }
+
+        #menu {
+            background: var(--header-bg-color);
+            color: #ffffff;
+        }
+
+        #menu ul {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            padding: 0;
+            list-style: none;
+        }
+
+        #menu li {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 20px;
+            border-radius: 30px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            color: #ffffff;
+            transition: transform 0.2s;
+        }
+
+        #menu li:hover {
+            transform: translateY(-20px);
+        }
+
+        #menu img {
+            width: 100%;
+            height: auto;
+            border-radius: 18px;
+        }
+
+        #testimonials {
+            background: var(--light-bg-color);
+            color: var(--text-color);
+            padding: 40px 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .testimonial {
+            margin: 20px 0;
+            border: 1px solid #ddd;
+            padding: 10px;
+            background: var(--testimonial-bg-color);
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            color: var(--text-color);
+        }
+
+        .testimonial i {
+            color: var(--header-bg-color);
+        }
+
+        footer {
+            background: var(--footer-bg-color);
+            color: #ffffff;
+            text-align: center;
+            padding: 10px 0;
+        }
+
+        .social-icons {
+            margin: 10px 0;
+        }
+
+        .social-icons a {
+            color: #ffffff;
+            margin: 0 10px;
+            text-decoration: none;
+            font-size: 20px;
+        }
+
+        .social-icons a:hover {
+            color: #d1d1d1;
+        }
+
+        /* New styles for headlines */
+        h1, h2, h3 {
+            border: 2px solid var(--header-bg-color); /* Set border color */
+            border-radius: 12px; /* Round corners */
+            padding: 10px; /* Space between text and border */
+            background-color: #ffffff; /* Background color inside the border */
+            display: inline-block; /* Makes the border wrap around the text */
+            color: black; /* Set text color to black */
+        }
+
+        /* Bakery details section */
+        #bakery-details {
+            background: var(--light-bg-color);
+            color: var(--text-color);
+            padding: 40px 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .bakery-info {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 10px 0;
+        }
+
+        .bakery-info i {
+            margin-right: 10px;
+            color: var(--header-bg-color);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <i class="fas fa-bread-slice"></i>
+            <span>Bakery</span>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#menu"><i class="fas fa-utensils"></i> Menu</a></li>
+                <li><a href="#testimonials"><i class="fas fa-comments"></i> Testimonials</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="hero">
+        <h1>Welcome to Our Bakery</h1>
+        <p>Delicious treats made fresh every day!</p>
+        <button>Order Now</button>
+    </div>
+
+    <section id="menu">
+        <h2>Menu</h2>
+        <ul>
+            <li>
+            	<h3><i class="fas fa-pizza-slice"></i> Cheese Bread</h3>
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT7ikcoN8z2WV9v-DhN92rKXed53AQxACRotToMXpbcJTZqDSy7j4YIINM&s=10" alt="Pastries">
+                
+                <p>Delightful pastries baked to perfection.</p>
+                <p><i class="fas fa-dollar-sign"></i> <strong>Price: $4.00</strong></p>
+            </li>
+            <li>
+            	<h3><i class="fas fa-cake-candles"></i> Cupcakes</h3>
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT7ikcoN8z2WV9v-DhN92rKXed53AQxACRotToMXpbcJTZqDSy7j4YIINM&s=10" alt="Pastries">
+           
+                <p>Delightful pastries baked to perfection.</p>
+                <p><i class="fas fa-dollar-sign"></i> <strong>Price: $4.00</strong></p>
+            </li>
+            <li>
+            	<h3><i class="fas fa-pizza-slice"></i> Cheese Bread</h3>
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT7ikcoN8z2WV9v-DhN92rKXed53AQxACRotToMXpbcJTZqDSy7j4YIINM&s=10" alt="Pastries">
+                
+                <p>Delightful pastries baked to perfection.</p>
+                <p><i class="fas fa-dollar-sign"></i> <strong>Price: $4.00</strong></p>
+            </li>
+            <li>
+            	<h3><i class="fas fa-cake-candles"></i> Cupcakes</h3>
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT7ikcoN8z2WV9v-DhN92rKXed53AQxACRotToMXpbcJTZqDSy7j4YIINM&s=10" alt="Pastries">
+          
+                <p>Delightful pastries baked to perfection.</p>
+                <p><i class="fas fa-dollar-sign"></i> <strong>Price: $4.00</strong></p>
+            </li>
+            <li>
+            	<h3><i class="fas fa-pizza-slice"></i> Cheese Bread</h3>
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT7ikcoN8z2WV9v-DhN92rKXed53AQxACRotToMXpbcJTZqDSy7j4YIINM&s=10" alt="Bread">
+                
+                <p>Freshly baked bread every morning.</p>
+                <p><i class="fas fa-dollar-sign"></i> <strong>Price: $4.00</strong></p>
+            </li>
+            <li>
+            	<h3><i class="fas fa-cake-candles"></i> Cupcakes</h3>
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT7ikcoN8z2WV9v-DhN92rKXed53AQxACRotToMXpbcJTZqDSy7j4YIINM&s=10" alt="Cakes">
+                
+                <p>Custom cakes for all occasions.</p>
+                <p><i class="fas fa-dollar-sign"></i> <strong>Price: $4.00</strong></p>
+            </li>
+        </ul>
+    </section>
+
+    <section id="testimonials">
+        <h2>What Our Customers Say</h2>
+        <div class="testimonial">
+            <i class="fas fa-quote-left"></i>
+            <p>"The best bakery in town! Highly recommend the pastries."</p>
+        </div>
+        <div class="testimonial">
+            <i class="fas fa-quote-left"></i>
+            <p>"Fresh bread every day, and the cakes are simply amazing!"</p>
+        </div>
+    </section>
+
+    <section id="bakery-details">
+        <h2>Our Bakery Details</h2>
+        <div class="bakery-info">
+            <i class="fas fa-map-marker-alt"></i>
+            <p>123 Bakery St, Food City, Yumland</p>
+        </div>
+        <div class="bakery-info">
+            <i class="fas fa-clock"></i>
+            <p>Open Daily: 7 AM - 7 PM</p>
+        </div>
+        <div class="bakery-info">
+            <i class="fas fa-phone"></i>
+            <p>(123) 456-7890</p>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Bakery Inspired by Starbucks. All rights reserved.</p>
+        <div class="social-icons">
+            <a href="your link"><i class="fab fa-facebook-f"></i></a>
+            <a href="your link"><i class="fab fa-instagram"></i></a>
+            <a href="your link"><i class="fab fa-twitter"></i></a>
+        </div>
+    </footer>
+</body>
+</html>
